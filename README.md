@@ -2,7 +2,7 @@ switch sang nhánh dev rồi tạo nhánh mới tên mình để làm bên nhán
 
 Anh em thêm file <tên>.env vào nhé.
 mẫu:
-DB_NAME=jdbc:mysql://localhost:3306/finance_managers
+DB_NAME=jdbc:mysql://localhost:3306/finance_managers?createDatabaseIfNotExist=true
 USER=root
 PASSWORD=admin
 
