@@ -16,8 +16,8 @@ public class Cart {
     @Id
     private Long cartId;
     private int cartNumber;
-    private String  expirationDate;
-    private String codeCVV;
+    private String accountType;
+    private double surplus;
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
