@@ -31,4 +31,18 @@ public class UserService implements IUserService {
     public void remove(Long id) {
 
     }
+
+    @Override
+    public User createUser(User user) throws Exception{
+        if(userRepo.findUsersByEmail(user.getEmail()).isPresent()){
+            throw new Exception("email này đã được đăng ký");
+        }
+        return userRepo.save(user);
+    }
+
+    @Override
+    public boolean checkPasswordAndConfrimPassword(User user) {
+        return user.getPassword().equals(user.getConfirmPassword());
+
+    }
 }
