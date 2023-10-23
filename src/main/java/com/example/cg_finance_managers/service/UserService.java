@@ -19,16 +19,16 @@ public class UserService implements IUserService {
 
     @Override
     public Optional<User> findById(Long id) {
-        return Optional.empty();
+        return userRepo.findById(id);
     }
 
     @Override
     public Iterable<User> findAll() {
-        return null;
+        return userRepo.findAll();
     }
 
     @Override
     public void remove(Long id) {
-
+        userRepo.deleteById(id);
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/user/")
@@ -17,5 +19,11 @@ public class UserController {
     private ResponseEntity<User>registerUser(@RequestBody User user){
         return new ResponseEntity<>(userService.save(user),HttpStatus.OK);
     }
-
+    @PostMapping("/change-password")
+    public ResponseEntity<String> changePassword(String newPassword,Long idUser){
+        Optional<User> user = userService.findById(idUser);
+        if (!user.isPresent()){
+        user.get().setPassword(newPassword);
+    }
+        return ResponseEntity.ok("Password changed successfully");}
 }
